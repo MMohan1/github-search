@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/static/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/static/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap-theme.min.css">
+</head>
+<body>
+<h1 class="text-center"> Github User Data </h1>
+	<div class="col-lg-12">
+      <style>
+        .form-signin {
+          max-width: 550px;
+          padding: 15px;
+          margin: 0 auto;
+        }    
+      </style>
+
+
+      <div class="container text-center">
+          <form class="form-signin" id="login_form" method="post" action="/github/search/">
+            {% csrf_token %}
+
+            <br>
+            <input type="text" name="query" class="form-control" placeholder="Search GitHub, e.g: Python" value="" required autofocus>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Get Search Results</button>
+          </form>
+      </div>
+      <div>
+        {% if data%}
+        <h4>Total: {{data.total}}</h4>
+        <h4>Results Language: {{data.languages}}</h4>
+        <h4>Stars Average: {{data.average_star}}</h4> 
+        {% endif %}
+      </div>
+      <div class="table-responsive">
+          <table class="table table-bordered table-hover table-striped tablesorter">
+              <thead>
+                <tr>
+                <th class="header"> SR.No <i class="icon-sort"></i></th>
+                <th class="header"> URL <i class="icon-sort"></i></th>
+                <th class="header"> Description <i class="icon-sort"></i></th>
+                <th class="header"> Starts <i class="icon-sort"></i></th>
+                <th class="header"> Languages <i class="icon-sort"></i></th>
+              </tr>
+          </thead>
+          <tbody>
+          
+          {% for key in data.results %}
+              <tr>
+                  <td>{{ key.sr_no }}</td>
+                  <td> {{key.url}}</td>
+                  <td>{{ key.description }}</td>
+                  <td>{{ key.star }}</td>
+                  <td>{{ key.language }}</td>
+              </tr>
+          {% endfor %}
+          
+          </tbody>
+          </table>
+      </div>
+    </div>
+</body>
+</html>

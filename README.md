@@ -46,7 +46,7 @@ Run the test suite:
     python manage.py test
 
 
-## Problem Statement  
+# Problem Statement  
 Given a target website to you [Github at https://github.com](https://github.com) which allows finding results based on input search query. Use the search box to perform search based on input query - **artifical intelligence**. Provide answers to below questions -  
 
 1.  Github url and description of top 50 projects having maximum stars given by the users for the input query. *Note* description / title will be available on click of the title of the search result   

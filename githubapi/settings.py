@@ -53,7 +53,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'githubapi.urls'
-DEBUG = True
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

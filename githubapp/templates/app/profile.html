@@ -31,7 +31,7 @@
         {% if data%}
         <h4>Total: {{data.total}}</h4>
         <h4>Results Language: {{data.languages}}</h4>
-        <h4>Stars Average: {{data.average_star}}</h4> 
+        <h4>Average Star Rating: {{data.average_star}}</h4> 
         {% endif %}
       </div>
       <div class="table-responsive">
@@ -50,7 +50,7 @@
           {% for key in data.results %}
               <tr>
                   <td>{{ key.sr_no }}</td>
-                  <td> {{key.url}}</td>
+                  <td> <a href='{{key.url}}'>{{key.url}}</a></td>
                   <td>{{ key.description }}</td>
                   <td>{{ key.star }}</td>
                   <td>{{ key.language }}</td>
